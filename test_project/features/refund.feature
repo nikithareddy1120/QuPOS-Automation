@@ -1,4 +1,4 @@
-@qupos
+@qpos
 Feature: refund Feature
 
   Scenario:
