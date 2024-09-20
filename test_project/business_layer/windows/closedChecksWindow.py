@@ -50,6 +50,7 @@ class closedChecksWindow:
 
     def clickFullRefund(self):
         if driver.utilities.is_element_enabled(driver.app, self.FULLREFUNDBUTTON, "Full Refund", waits_config['veryShortWait']):
+            logging.info("Full Refund button in enabled")
             driver.utilities.click_button(driver.app, self.FULLREFUNDBUTTON, "Full Refund", waits_config['veryShortWait'])
         else:
             logging.error("Full Refund button is not enabled")

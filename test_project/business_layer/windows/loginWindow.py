@@ -24,8 +24,7 @@ class loginWindow:
 
     def launchApp(self):
         driver.launch_application(pywinauto_config["application_path"])
-        time.sleep(5)
-        # time.sleep(waits_config['veryVeryLongWait'])
+        time.sleep(waits_config['shortWait'])
 
     def verifyloginScreen(self):
         driver.utilities.is_element_displayed(driver.app, self.LOGINBUTTON, "Login button", waits_config['veryShortWait'])  #Login button
@@ -33,7 +32,8 @@ class loginWindow:
 
     def clickLoginButton(self):
         driver.utilities.click_button(driver.app, self.LOGINBUTTON, "Login button", waits_config['veryShortWait'])  # loginbutton
-        if driver.utilities.waitUntilVisible(driver.app, self.ADMINISTRATOR, "Administrator button", waits_config['veryShortWait']):
+        if driver.utilities.waitUntilVisible(driver.app, self.ADMINISTRATOR, waits_config['veryShortWait']):
+            logging.info("Administrator button is displayed")
             driver.utilities.click_button(driver.app, self.ADMINISTRATOR, "Administrator button", waits_config['veryShortWait'])
             driver.utilities.click_button(driver.app, self.CLOCKINLOGIN, "Clock In & Log In button", waits_config['veryShortWait'])
         else:

@@ -110,7 +110,7 @@ class PywinautoUtilities:
         except Exception as e:
             logging.error(f"{friendlyNameOfElement} not found: {e}")
 
-    def waitUntilVisible(self, app, control_identifier, friendlyNameOfElement, timeout):
+    def waitUntilVisible(self, app, control_identifier, timeout):
         """
         This method will wait for an element to be displayed.
             :param app : pywinauto Application instance.
@@ -118,15 +118,15 @@ class PywinautoUtilities:
             :param control_identifier : element locator
             :param timeout : time to wait for element to be displayed
         """
+        flag = False
         try:
             window = app[pywinauto_config['window_title']]
             control = window.child_window(**control_identifier).wrapper_object()
             time.sleep(timeout)
-            control.is_visible()
-            logging.info(f"{friendlyNameOfElement} is displayed")
-            return control
+            flag = control.is_visible()
+            return flag
         except Exception as e:
-            logging.info(f"{friendlyNameOfElement} not found")
+            return flag
 
     def is_element_selected(self, app, control_identifier, timeout):
         """
@@ -145,7 +145,7 @@ class PywinautoUtilities:
         except Exception as e:
             logging.error(f"{control_identifier} is not selected in {timeout}: {e}")
 
-    def is_element_enabled(self, app, control_identifier, friendlyNameOfElement, timeout):
+    def is_element_enabled(self, app, control_identifier, timeout):
         """
         This method will wait for an element to be enabled.
             :param app : pywinauto Application instance.
@@ -159,10 +159,10 @@ class PywinautoUtilities:
             control = window.child_window(**control_identifier).wrapper_object()
             time.sleep(timeout)
             flag = control.is_enabled()
-            logging.info(f"{friendlyNameOfElement} is enabled")
+            # logging.info(f"{friendlyNameOfElement} is enabled")
             return flag
         except Exception as e:
-            logging.error(f"{friendlyNameOfElement} not enabled: {e}")
+            # logging.error(f"{friendlyNameOfElement} not enabled: {e}")
             return flag
 
     def clear_text(self, app, control_identifier, timeout):

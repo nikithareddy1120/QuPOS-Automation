@@ -65,7 +65,7 @@ class orderWindow:
         driver.utilities.is_element_displayed(driver.app, tillDeviceSelectionText, "Till Device Selection popup", waits_config['veryShortWait']) #tilldeviceselection
 
     def selectAvailableTill(self):
-        tillAvailability = driver.utilities.waitUntilVisible(driver.app, self.RECONCILE, "Reconcile button", waits_config['veryShortWait'])
+        tillAvailability = driver.utilities.waitUntilVisible(driver.app, self.RECONCILE, waits_config['veryShortWait'])
         if tillAvailability:
             logging.info("Till already claimed!")
             self.verifyCurrentCash()
