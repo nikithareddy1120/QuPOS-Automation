@@ -46,7 +46,7 @@ class closedChecksWindow:
         if match:
             result = match.group(1)
             recentCheck = driver.utilities.get_locator_by_title(result)
-            driver.utilities.click_button(driver.app, recentCheck, "clicked on the check " + recentCheck, waits_config['veryShortWait'])
+            driver.utilities.click_button(driver.app, recentCheck, "clicked on the check " + result, waits_config['veryShortWait'])
 
     def clickFullRefund(self):
         if driver.utilities.is_element_enabled(driver.app, self.FULLREFUNDBUTTON, waits_config['veryShortWait']):
