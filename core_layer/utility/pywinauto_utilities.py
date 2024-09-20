@@ -159,8 +159,10 @@ class PywinautoUtilities:
             time.sleep(timeout)
             control.is_enabled()
             logging.info(f"{friendlyNameOfElement} is enabled")
+            return True
         except Exception as e:
             logging.error(f"{friendlyNameOfElement} not enabled: {e}")
+            return False
 
     def clear_text(self, app, control_identifier, timeout):
         """
