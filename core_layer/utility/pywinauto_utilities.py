@@ -53,7 +53,7 @@ class PywinautoUtilities:
             control.click_input()
             logging.info(f"Clicked on {friendlyNameOfElement}")
         except Exception:
-            logging.error(f"Unable to click on {friendlyNameOfElement}")
+            logging.error(f"{friendlyNameOfElement} not found")
 
     def enter_text(self, app, control_identifier, text, friendlyNameOfElement, timeout):
         """
