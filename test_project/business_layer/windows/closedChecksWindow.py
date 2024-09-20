@@ -49,7 +49,7 @@ class closedChecksWindow:
             driver.utilities.click_button(driver.app, recentCheck, "clicked on the check", waits_config['veryShortWait'])
 
     def clickFullRefund(self):
-        if driver.utilities.is_element_enabled(driver.app, self.FULLREFUNDBUTTON, "Full Refund", waits_config['veryShortWait']):
+        if driver.utilities.is_element_enabled(driver.app, self.FULLREFUNDBUTTON, waits_config['veryShortWait']):
             logging.info("Full Refund button in enabled")
             driver.utilities.click_button(driver.app, self.FULLREFUNDBUTTON, "Full Refund", waits_config['veryShortWait'])
         else:
