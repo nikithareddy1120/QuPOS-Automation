@@ -108,7 +108,7 @@ class PywinautoUtilities:
             control.is_visible()
             logging.info(f"{friendlyNameOfElement} is displayed")
         except Exception as e:
-            logging.error(f"{friendlyNameOfElement} not found in {timeout}: {e}")
+            logging.error(f"{friendlyNameOfElement} not found: {e}")
 
     def waitUntilVisible(self, app, control_identifier, friendlyNameOfElement, timeout):
         """
@@ -153,16 +153,17 @@ class PywinautoUtilities:
             :param control_identifier : element locator
             :param timeout : time to wait for element to be enabled
         """
+        flag = False
         try:
             window = app[pywinauto_config["window_title"]]
             control = window.child_window(**control_identifier).wrapper_object()
             time.sleep(timeout)
-            control.is_enabled()
+            flag = control.is_enabled()
             logging.info(f"{friendlyNameOfElement} is enabled")
-            return True
+            return flag
         except Exception as e:
             logging.error(f"{friendlyNameOfElement} not enabled: {e}")
-            return False
+            return flag
 
     def clear_text(self, app, control_identifier, timeout):
         """

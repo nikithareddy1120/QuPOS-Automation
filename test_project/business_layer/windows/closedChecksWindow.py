@@ -55,7 +55,7 @@ class closedChecksWindow:
             logging.error("Full Refund button is not enabled")
 
     def verifyFullRefundPopUp(self):
-        driver.utilities.is_element_displayed(driver.app, self.TEXTINFULLREFUNDPOPUP, "Text in full refund popup", waits_config['veryShortWait'])
+        driver.utilities.is_element_displayed(driver.app, self.TEXTINFULLREFUNDPOPUP, "Text 'You have selected to Full Refund the check' in full refund popup", waits_config['veryShortWait'])
 
     def clickContinueButton(self):
         driver.utilities.click_button(driver.app, self.CONTINUEBUTTON, "Continue Button", waits_config['veryShortWait'])
