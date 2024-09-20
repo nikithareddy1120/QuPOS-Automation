@@ -1,0 +1,160 @@
+@qpos
+Feature: payPerItem Feature # test_project/features/payPerItem.feature:2
+
+  Scenario:                                                                                                              # test_project/features/payPerItem.feature:4
+    Given The user launch the "Qu POS" desktop application                                                               # None
+    Then user should be able to see the "login" screen                                                                   # None
+    When user enter an employee "ID" on a counter sign in screen and select "Log In" button                              # None
+    And user selects the "hamburger menu" in the bottom right corner                                                     # None
+    Then user should see the "Claim/Close Till" and "Show Open Checks" options on the top navigation menu of the screen. # None
+    When user select "Claim/Close Till" option                                                                           # None
+    Then user should see "Till Device Selection" popup                                                                   # None
+    When user select "Claim" on an available till and verify the till marked as "claimed" and "current cash" in the till # None
+    And user select the "X" button on the til popup                                                                      # None
+    And user select "DineIn" from the drop down displayed on top left corner                                             # None
+    Then user should see the "DineIn" option which is selected from dropdown                                             # None
+    When user add multiple items to the order                                                                            # None
+    Then user should see the cart view, subtotal, tax, total on the left side of the screen                              # None
+    When user select an entree in the cart                                                                               # None
+    Then user should see entree modification items on the right side of the screen                                       # None
+    When user remove a default modifier by clicking on it                                                                # None
+    Then user should see "No (default modifier name)"                                                                    # None
+    When user add a free modifier by clicking on it                                                                      # None
+    Then user should see "Add (free modifier name)"                                                                      # None
+    When user add a priced modifier by clicking on it                                                                    # None
+    Then user should see "Add (priced modifier name)", and the total should reflect the additional price of the modifier # None
+    When user clicks on "Quick Suspend", "hamburger menu"                                                                # None
+    Then user should see the "Claim/Close Till" and "Show Open Checks" options on the top navigation menu of the screen. # None
+    When user clicks on "Show Open Checks"                                                                               # None
+    Then user should see "All Checks" text and "All order types" dropdown                                                # None
+    When user selects the check by clicking on it.                                                                       # None
+    Then user should see the Total Amount of the check                                                                   # None
+    When user select "Payment" button                                                                                    # None
+    Then user should see list of all the available payment methods                                                       # None
+    When user click on cash                                                                                              # None
+    Then user should see "Due Amount" of all the items and "Apply Payment" button should be displayed                    # None
+    When user clicks on Pay per Item, select the items and click on Ok                                                   # None
+    And user click on "Apply Payment"                                                                                    # None
+    Then user should see list of all the available payment methods                                                       # None
+    When user click on cash                                                                                              # None
+    Then user should see the "Due Amount" and "Apply Payment" button should be displayed                                 # None
+    When user clicks on Pay per Item, select items and click on Ok                                                       # None
+    And user click on "Apply Payment"                                                                                    # None
+    Then user see the Total amount as Zero and "No Checks" text                                                          # None
+    When user selects the "hamburger menu" in the bottom right corner                                                    # None
+    Then user should see the Logout button on the top navigation bar                                                     # None
+    And user select "Logout" button on the top navigation bar                                                            # None
+
+@qupos
+Feature: refund Feature # test_project/features/refund.feature:2
+
+  Scenario:                                                                                                              # test_project/features/refund.feature:4
+    Given The user launch the "Qu POS" desktop application                                                               # test_project/steps/payPerItem.py:12
+    Then user should be able to see the "login" screen                                                                   # test_project/steps/payPerItem.py:18
+    When user enter an employee "ID" on a counter sign in screen and select "Log In" button                              # test_project/steps/payPerItem.py:23
+    And user selects the "hamburger menu" in the bottom right corner                                                     # test_project/steps/payPerItem.py:29
+    Then user should see the "Claim/Close Till" and "Show Open Checks" options on the top navigation menu of the screen. # test_project/steps/payPerItem.py:34
+    When user selects "Search Closed Checks" on the top navigation bar                                                   # test_project/steps/refund.py:10
+    Then user should see list of closed checks should populate on the screen along with filters to filter the search     # test_project/steps/refund.py:15
+    When user select the check that was just created via the Pay Per Item test case                                      # test_project/steps/refund.py:20
+    Then user should see the check number to the right of the check receipt                                              # test_project/steps/refund.py:25
+    When user select Full Refund                                                                                         # test_project/steps/refund.py:30
+    Then user should see "Full refund" pop up should be displayed asking to confirm the refund                           # test_project/steps/refund.py:35
+      Assertion Failed: 20/09/2024 10:43:34 AM ERROR: pywinauto_utilities: (is_element_displayed): Text in full refund popup not found in 1: {'title': 'You have selected to Full Refund the check. Do you want to proceed or go back?', 'control_type': 'Text', 'top_level_only': False, 'parent': <uia_element_info.UIAElementInfo - 'Qu', ApplicationFrameWindow, 132008>, 'backend': 'uia'}
+      Captured logging:
+      INFO:root:Trying to launch application using subprocess
+      INFO:root:5236
+      INFO:root:Application launched successfully with window title
+      INFO:root:backend
+      INFO:root:Qu POS application has launched successfully
+      INFO:root:Login button is displayed
+      INFO:root:Clock In button is displayed
+      INFO:root:Clicked on 1
+      INFO:root:Clicked on 0
+      INFO:root:Clicked on 0
+      INFO:root:Clicked on 3
+      INFO:root:Clicked on Login button
+      INFO:root:Administrator button not found in 1: {'title': 'Administrator', 'control_type': 'ListItem', 'top_level_only': False, 'parent': <uia_element_info.UIAElementInfo - 'Qu', ApplicationFrameWindow, 132008>, 'backend': 'uia'}
+      INFO:root:Application is already logged in as an Administrator.
+      INFO:root:Clicked on Hamburger Menu
+      INFO:root:Claim/Close Till button is displayed
+      INFO:root:Show Open Checks button is displayed
+      INFO:root:Clicked on Search Closed Checks
+      INFO:root:List of all closed checks is displayed
+      INFO:root:All order types Dropdown is displayed
+      INFO:root:All order channels drop down is displayed
+      INFO:root:Clicked on Today button
+      INFO:root:Clicked on clicked on the check
+      INFO:root:Text from Ok button is #9879 - OKC QA Lab                    4015
+      1141 West Sheridan Avenue                 
+      9/20/2024                         12:07 AM
+      
+      Item                                 Price
+      ------------------------------------------
+      SUPREME CROISSANT                    $5.69
+        ADD JALAPENOS @ 0.40                    
+      #4 BACON ULTIMATE CHEESEBURGER      $11.98
+      COMBO (M)                                 
+      KID'S CHEESEBURGER MEAL              $7.29
+        ONION RINGS @ 2.00                      
+                                      __________
+      Subtotal                            $24.96
+      
+      CA Sales Tax                         $1.81
+      J9880 OKC Lab, OK Tax (Test)         $2.56
+                                      __________
+      Total                               $29.33
+      
+         Cash Tendered                    $20.76
+         Cash Tendered                     $8.57
+         Change Due                        $0.00
+      
+      
+      
+      Reference Number           240920050516442
+      POS                                 DineIn
+      ------------------------------------------
+                    DRAFT RECEIPT               
+      ------------------------------------------
+      INFO:root:Assertion passed: Expected value '#9879 - OKC QA Lab                    4015
+      1141 West Sheridan Avenue                 
+      9/20/2024                         12:07 AM
+      
+      Item                                 Price
+      ------------------------------------------
+      SUPREME CROISSANT                    $5.69
+        ADD JALAPENOS @ 0.40                    
+      #4 BACON ULTIMATE CHEESEBURGER      $11.98
+      COMBO (M)                                 
+      KID'S CHEESEBURGER MEAL              $7.29
+        ONION RINGS @ 2.00                      
+                                      __________
+      Subtotal                            $24.96
+      
+      CA Sales Tax                         $1.81
+      J9880 OKC Lab, OK Tax (Test)         $2.56
+                                      __________
+      Total                               $29.33
+      
+         Cash Tendered                    $20.76
+         Cash Tendered                     $8.57
+         Change Due                        $0.00
+      
+      
+      
+      Reference Number           240920050516442
+      POS                                 DineIn
+      ------------------------------------------
+                    DRAFT RECEIPT               
+      ------------------------------------------' contains actual value '4015'.
+      INFO:root:Clicked on Full Refund
+
+    When user select "Continue"                                                                                          # None
+    Then user should see "Select a Refund Reason" pop up                                                                 # None
+    When user Select a reason of the refund and click the Full Refund button                                             # None
+    Then user should see "Full Refund Completed" pop up                                                                  # None
+    When user click "Ok" and click back arrow which is on top left corner                                                # None
+    And user selects "hamburger menu" in the bottom right corner                                                         # None
+    Then user should see the Logout button on the top navigation bar                                                     # None
+    And user select "Logout" button on the top navigation bar                                                            # None
+
