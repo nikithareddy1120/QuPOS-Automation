@@ -20,7 +20,7 @@ class closedChecksWindow:
     TODAYBUTTON = {"auto_id":"SearchToday_Button"}
     BACKARROW = {"auto_id":"cnbSettingsPage"}
     FULLREFUNDBUTTON = {"auto_id":"ClosedCheck_FullRefund_Button"}
-    CONTINUEBUTTON = {"title" : "Continue", "auto_id" : "Full Refund-Continue", "control_type" : "Button"}
+    CONTINUEBUTTON = {"title" : "Continue", "auto_id" : "Full Continue", "control_type" : "Button"}
     TEXTINFULLREFUNDPOPUP = {"title" : "You have selected to Full Refund the check. Do you want to proceed or go back?", "control_type" : "Text"}
     SELECTAREASONPOPUP = {"title" : "Select a Refund Reason", "auto_id" : "TitleTextBlock", "control_type" : "Text"}
     OVERRINGREASON = {"title":"Select", "auto_id":"ReasonsFlyoutItemView_Select1116_Button", "control_type":"Button"}
