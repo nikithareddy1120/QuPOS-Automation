@@ -37,7 +37,7 @@ class loginWindow:
             driver.utilities.click_button(driver.app, self.ADMINISTRATOR, "Administrator button", waits_config['veryShortWait'])
             driver.utilities.click_button(driver.app, self.CLOCKINLOGIN, "Clock In & Log In button", waits_config['veryShortWait'])
         else:
-            logging.info("Application is already logged in as an Administrator.")
+            logging.info("Application is logged in as an Administrator.")
         time.sleep(waits_config['longWait'])
 
     def closeApplication(self):

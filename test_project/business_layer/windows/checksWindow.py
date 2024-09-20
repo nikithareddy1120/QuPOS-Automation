@@ -24,8 +24,8 @@ class checksWindow:
 
 
     def verifyChecksWindow(self):
-        driver.utilities.is_element_displayed(driver.app, self.ALLCHECKS, "All  Checks text",  waits_config['veryShortWait'])
-        driver.utilities.is_element_displayed(driver.app, self.ALLORDERTYPES, "All Order types", waits_config['veryShortWait'])
+        driver.utilities.is_element_displayed(driver.app, self.ALLCHECKS, "All Checks text",  waits_config['veryShortWait'])
+        driver.utilities.is_element_displayed(driver.app, self.ALLORDERTYPES, "All Order types button", waits_config['veryShortWait'])
 
     def openCheck(self):
         extractedchecknumber = self.yamlmanager.get_data_from_yaml('checknumber')
@@ -33,5 +33,5 @@ class checksWindow:
         if match:
             result = match.group()
             checklocator = driver.utilities.get_locator_by_title(result)
-            driver.utilities.click_button(driver.app, checklocator, "Recent check", waits_config['veryShortWait'])
+            driver.utilities.click_button(driver.app, checklocator, result + " (Recent check number)", waits_config['veryShortWait'])
         time.sleep(waits_config['longWait'])

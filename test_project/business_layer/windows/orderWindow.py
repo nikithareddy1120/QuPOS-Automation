@@ -79,7 +79,7 @@ class orderWindow:
         driver.utilities.is_element_displayed(driver.app, tillClaimedText, "Till, Successfully Claimed! text", waits_config['veryShortWait'])  #cliamed
 
     def verifyCurrentCash(self):
-        driver.utilities.is_element_displayed(driver.app, self.CURRENTCASH, "Current cash", waits_config['veryShortWait']) #current cash
+        driver.utilities.is_element_displayed(driver.app, self.CURRENTCASH, "Current cash text", waits_config['veryShortWait']) #current cash
 
     def closeTillPopup(self):
         driver.utilities.click_button(driver.app, self.CLOSE, "Close button", waits_config['veryShortWait'])
@@ -139,7 +139,7 @@ class orderWindow:
 
     def verifySelectedEntreeIsDisplayed(self):
         entreeFromCart = driver.utilities.get_locator_by_title(qu_config['entreeFromCart'])
-        driver.utilities.click_button(driver.app, entreeFromCart, "SUPREME CROISSANT from cart", waits_config['veryShortWait'])
+        driver.utilities.is_element_displayed(driver.app, entreeFromCart, "SUPREME CROISSANT from cart", waits_config['veryShortWait'])
 
     def removeDefaultModifiers(self):
         driver.utilities.click_button(driver.app, self.REMOVEDEFAULTMODIFIER, "'-' button of HAM", waits_config['veryShortWait'])  #
@@ -209,7 +209,7 @@ class orderWindow:
 
     def verifyWindowAfterPayment(self):
         time.sleep(waits_config['shortWait'])
-        driver.utilities.is_element_displayed(driver.app, self.NOCHECKTEXT, "No Checks", waits_config['veryShortWait'])
+        driver.utilities.is_element_displayed(driver.app, self.NOCHECKTEXT, "No Checks text", waits_config['veryShortWait'])
         total = driver.utilities.get_text(driver.app, self.TOTALAMOUNT, "Total Amount", waits_config['veryShortWait'])
         if float(total.replace('$', '')) == 0.00:
             logging.info("Payment was successful")
@@ -217,5 +217,5 @@ class orderWindow:
             logging.error("Payment was not successful")
 
     def clickSearchClosedChecks(self):
-        driver.utilities.click_button(driver.app, self.SEARCHCLOSEDCHECKS, "Search Closed Checks", waits_config['veryShortWait'])
+        driver.utilities.click_button(driver.app, self.SEARCHCLOSEDCHECKS, "Search Closed Checks button", waits_config['veryShortWait'])
         time.sleep(waits_config['veryShortWait'])

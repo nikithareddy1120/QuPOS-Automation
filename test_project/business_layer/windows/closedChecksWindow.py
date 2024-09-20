@@ -36,7 +36,7 @@ class closedChecksWindow:
 
     def verifyClosedChecksWindow(self):
         driver.utilities.is_element_displayed(driver.app, self.LISTOFCLOSEDCHECKS, "List of all closed checks", waits_config['veryShortWait'])
-        driver.utilities.is_element_displayed(driver.app, self.ALLORDERTYPESDROPDOWN, "All order types Dropdown", waits_config['veryShortWait'])
+        driver.utilities.is_element_displayed(driver.app, self.ALLORDERTYPESDROPDOWN, "All order types drop down", waits_config['veryShortWait'])
         driver.utilities.is_element_displayed(driver.app, self.ALLORDERCHANNELSDROPDOWN, "All order channels drop down", waits_config['veryShortWait'])
 
     def selectClosedCheck(self):
@@ -46,12 +46,12 @@ class closedChecksWindow:
         if match:
             result = match.group(1)
             recentCheck = driver.utilities.get_locator_by_title(result)
-            driver.utilities.click_button(driver.app, recentCheck, "clicked on the check", waits_config['veryShortWait'])
+            driver.utilities.click_button(driver.app, recentCheck, "clicked on the check " + recentCheck, waits_config['veryShortWait'])
 
     def clickFullRefund(self):
         if driver.utilities.is_element_enabled(driver.app, self.FULLREFUNDBUTTON, waits_config['veryShortWait']):
             logging.info("Full Refund button in enabled")
-            driver.utilities.click_button(driver.app, self.FULLREFUNDBUTTON, "Full Refund", waits_config['veryShortWait'])
+            driver.utilities.click_button(driver.app, self.FULLREFUNDBUTTON, "Full Refund button", waits_config['veryShortWait'])
         else:
             logging.error("Full Refund button is not enabled")
 
@@ -62,15 +62,15 @@ class closedChecksWindow:
         driver.utilities.click_button(driver.app, self.CONTINUEBUTTON, "Continue Button", waits_config['veryShortWait'])
 
     def verifySelectAReasonPopUp(self):
-        driver.utilities.is_element_displayed(driver.app, self.SELECTAREASONPOPUP, "Select a Refund Reason popup", waits_config['veryShortWait'])
+        driver.utilities.is_element_displayed(driver.app, self.SELECTAREASONPOPUP, "'Select a Refund Reason' popup", waits_config['veryShortWait'])
 
     def clickOverringReason(self):
-        driver.utilities.click_button(driver.app, self.OVERRINGREASON, "Select a Refund Reason popup", waits_config['veryShortWait'])
+        driver.utilities.click_button(driver.app, self.OVERRINGREASON, "Overring reason", waits_config['veryShortWait'])
         driver.utilities.click_button(driver.app, self.FULLREFUNDAFTERSELECTINGREASON, "Full Refund button", waits_config['veryShortWait'])
         time.sleep(waits_config['longWait'])
 
     def verifyRefundCompletedPopUp(self):
-        driver.utilities.is_element_displayed(driver.app, self.FULLREFUNDCOMPLETED_TEXT, "Select a Refund Reason popup", waits_config['veryShortWait'])
+        driver.utilities.is_element_displayed(driver.app, self.FULLREFUNDCOMPLETED_TEXT, "'Full Refund Completed' popup", waits_config['veryShortWait'])
 
     def clickOkAndBackArrow(self):
         driver.utilities.click_button(driver.app, self.OKBUTTON, "Ok button", waits_config['veryShortWait'])

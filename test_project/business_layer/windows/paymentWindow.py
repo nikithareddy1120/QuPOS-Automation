@@ -60,14 +60,14 @@ class paymentWindow:
     def clickPayPerItemAndSelectItems(self):
         driver.utilities.click_button(driver.app, self.PAYPERITEM, "Pay per Item button", waits_config['veryShortWait'])
         time.sleep(waits_config['shortWait'])
-        driver.utilities.click_button(driver.app, self.ITEMONE, "Item one from Select Check Items to Pay popup", waits_config['veryShortWait'])
-        driver.utilities.click_button(driver.app, self.ITEMTWO, "Item two from Select Check Items to Pay popup", waits_config['veryShortWait'])
+        driver.utilities.click_button(driver.app, self.ITEMONE, "'SUPREME CROISSANT' checkbox from Select Check Items to Pay popup", waits_config['veryShortWait'])
+        driver.utilities.click_button(driver.app, self.ITEMTWO, "'BACON ULTIMATE CHEESE BURGER' checkbox from Select Check Items to Pay popup", waits_config['veryShortWait'])
         driver.utilities.click_button(driver.app, self.OKBUTTON, "OK button", waits_config['veryShortWait'])
 
     def clickPayPerItemAndSelectRestOfTheItems(self):
         driver.utilities.click_button(driver.app, self.PAYPERITEM, "Pay per Item button", waits_config['veryShortWait'])
         time.sleep(waits_config['shortWait'])
-        driver.utilities.click_button(driver.app, self.ITEMTHREE, "Item two from Select Check Items to Pay popup", waits_config['veryShortWait'])
+        driver.utilities.click_button(driver.app, self.ITEMTHREE, "'KIDS GRILLED CHEESE MEAL' checkbox from Select Check Items to Pay popup", waits_config['veryShortWait'])
         driver.utilities.click_button(driver.app, self.OKBUTTON, "OK button", waits_config['veryShortWait'])
 
     def clickApplyPayment(self):
