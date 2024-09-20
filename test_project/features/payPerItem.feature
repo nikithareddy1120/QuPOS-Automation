@@ -44,3 +44,4 @@ Feature: payPerItem Feature
     When user selects the "hamburger menu" in the bottom right corner
     Then user should see the Logout button on the top navigation bar
     And user select "Logout" button on the top navigation bar
+
