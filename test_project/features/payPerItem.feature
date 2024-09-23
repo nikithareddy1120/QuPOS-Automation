@@ -1,6 +1,7 @@
 @qpos
 Feature: payPerItem Feature
 
+
   Scenario:
     Given The user launch the "Qu POS" desktop application
     Then user should be able to see the "login" screen
