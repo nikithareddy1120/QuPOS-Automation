@@ -89,8 +89,8 @@ class PywinautoUtilities:
             text = control.window_text()
             logging.info(f"Text from {friendlyNameOfElement} is {text}")
             return text
-        except Exception as e:
-            logging.error(f"Unable to fetch the text from the {friendlyNameOfElement}: {e}")
+        except Exception:
+            logging.error(f"Unable to fetch the text from the {friendlyNameOfElement}")
             return None
 
     def is_element_displayed(self, app, control_identifier, friendlyNameOfElement, timeout):
@@ -107,8 +107,8 @@ class PywinautoUtilities:
             time.sleep(timeout)
             control.is_visible()
             logging.info(f"{friendlyNameOfElement} is displayed")
-        except Exception as e:
-            logging.error(f"{friendlyNameOfElement} not found: {e}")
+        except Exception:
+            logging.error(f"{friendlyNameOfElement} not found")
 
     def waitUntilVisible(self, app, control_identifier, timeout):
         """

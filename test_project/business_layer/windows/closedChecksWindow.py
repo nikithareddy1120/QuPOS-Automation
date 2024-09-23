@@ -20,7 +20,7 @@ class closedChecksWindow:
     TODAYBUTTON = {"auto_id":"SearchToday_Button"}
     BACKARROW = {"auto_id":"cnbSettingsPage"}
     FULLREFUNDBUTTON = {"auto_id":"ClosedCheck_FullRefund_Button"}
-    CONTINUEBUTTON = {"title" : "Continue", "auto_id" : "FullContinue", "control_type" : "Button"}
+    CONTINUEBUTTON = {"title" : "Continue", "auto_id" : "Full Refund-Continue", "control_type" : "Button"}
     TEXTINFULLREFUNDPOPUP = {"title" : "You have selected to Full Refund the check. Do you want to proceed or go back?", "control_type" : "Text"}
     SELECTAREASONPOPUP = {"title" : "Select a Refund Reason", "auto_id" : "TitleTextBlock", "control_type" : "Text"}
     OVERRINGREASON = {"title":"Select", "auto_id":"ReasonsFlyoutItemView_Select1116_Button", "control_type":"Button"}
@@ -46,7 +46,7 @@ class closedChecksWindow:
         if match:
             result = match.group(1)
             recentCheck = driver.utilities.get_locator_by_title(result)
-            driver.utilities.click_button(driver.app, recentCheck, "clicked on the check " + result, waits_config['veryShortWait'])
+            driver.utilities.click_button(driver.app, recentCheck, "check " + result, waits_config['veryShortWait'])
 
     def clickFullRefund(self):
         if driver.utilities.is_element_enabled(driver.app, self.FULLREFUNDBUTTON, waits_config['veryShortWait']):
@@ -78,7 +78,7 @@ class closedChecksWindow:
         driver.utilities.click_button(driver.app, self.BACKARROW, "Back Arrow", waits_config['veryShortWait'])
 
     def verifyCheckreceipt(self):
-        checknumber = driver.utilities.get_text(driver.app, self.CHECKRECEIPT, "Ok button", waits_config['veryShortWait'])
+        checknumber = driver.utilities.get_text(driver.app, self.CHECKRECEIPT, "Check", waits_config['veryShortWait'])
         extractedchecknumber = self.yamlmanager.get_data_from_yaml('checknumber')
         match = re.search(r"#(\d+)", extractedchecknumber)
         if match:

@@ -175,6 +175,19 @@ For assistance with WinAppDriver and PyWinAuto, please refer to the following re
    - Behave html report is also generated and stored in the 'htmlReport' folder
 
 ## TODO : Add Circle CI integration
+ - Install Remote Desktop Service from the Server Manager > Add Roles and Features.
+ - Navigate to Circle CI url and Sign in Using Your GitHub Account 
+ - Once you logged in, specify which GitHub repositories CircleCI should manage. 
+ - You can select either All repositories for broad access, or limit CircleCI to specific repositories.
+ - Set Up a New Project
+   - Click on the Projects tab on your CircleCI dashboard.
+   - Under Projects, find the GitHub repository where your code resides and click Set Up Project.
+   - After clicking Set Up Project, CircleCI will search for a `.circleci/config.yml` file in your repository's root.
+ - Create a resource class and install the CircleCI runner for a self-hosted agent using [CircleCI Runner installation](https://circleci.com/docs/machine-runner-3-manual-installation-on-windows/)
+ - Open powershell as an admin mode and navigate to the folder where the CircleCI is installed and run the below command to run the self hosted agent.
+   - "./circleci-runner.exe machine --config machine-runner-config.yaml"
+ - After running the above command the runner will be detected in the CircleCI self-hosted agent tab.
+ - Commit and push the code to the git, Once pushed, CircleCI will automatically detect the configuration and trigger the pipeline.
 
 ## Contribution guidelines
 	* If you have any issues with framework, please contact Automation CoE Team
